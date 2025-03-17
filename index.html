@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Read and update content attributes accordingly  -->
+    
+    <meta
+      name="description"
+      content="Welcome to my portfolio! I'm a passionate software developer specializing in building user-friendly websites and 
+              innovative software solutions. My focus is on delivering clean, efficient, and impactful code that brings ideas to life."
+    />
+
+    <!-- Google / Search Engine Tags -->
+<meta itemprop="name" content="Phillip Makafui's Portfolio">
+<meta itemprop="description" content="Welcome to my portfolio! I'm a passionate software developer specializing in building user-friendly websites and innovative software solutions. My focus is on delivering clean, efficient, and impactful code that brings ideas to life.">
+
+<!-- Reference screenshot of updated site's header in place of content -->
+<meta itemprop="image" content="assets/images/sharing-card.png">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Phillip Makafui's Portfolio">
+<meta property="og:description" content="Welcome to my portfolio! I'm a passionate software developer specializing in building user-friendly websites and innovative software solutions. My focus is on delivering clean, efficient, and impactful code that brings ideas to life.">
+
+<!-- Reference screenshot of updated site's header in content -->
+<meta property="og:image" content="assets/images/sharing-card.png">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Phillip Makafui's Portfolio">
+<meta name="twitter:description" content="Welcome to my portfolio! I'm a passionate software developer specializing in building user-friendly websites and innovative software solutions. My focus is on delivering clean, efficient, and impactful code that brings ideas to life.">
+
+<!-- Reference screenshot of updated site's header in content -->
+<meta name="twitter:image" content="assets/images/sharing-card.png">
+
+
+<!-- Update favicon href attribute with image of yourself -->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicons.png"
+      type="image/png"
+    />
+
+    <!-- Preloading fonts for better performance -->
+
+    <link
+      rel="preload"
+      href="assets/fonts/Mona-Sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <link rel="stylesheet" href="style.css"  />
+    <script src="script.js" defer></script>
+
+    <!-- Your name here -->
+    <title>Phillip Makafui's Portfolio</title>
+  </head>
+
+  <body>
+
+    <script>
+      const theme = localStorage.getItem("theme") || "dark";
+      document.body.classList.add(theme);
+    </script>
+
+    <header class="header">
+
+      <div class="menu-btn-container">
+        <div class="container">
+          <button type="button"  class="menu-btn">menu</button>
+        </div>
+      </div>
+
+      <nav class="nav hidden">
+        <ol class="nav-items">
+          <li class="nav-item"><a href="#">Home</a></li>
+          <li class="nav-item"><a href="#work">My Projects</a></li>
+          <li class="nav-item"><a href="#skills">My Skills</a></li>
+          <li class="nav-item">
+            <a href="#contact" data-focused="last-focused">Contact</a>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="container">
+        <div class="header-textbox">
+          <!-- My name and job title -->
+          <h1 class="h1">
+            <span>Hi, I'm Phillip Makafui</span>
+            <span>Software Developer</span>
+          </h1>
+
+          <!-- An introductory paragraph about myself -->
+          <p class="header-text">
+            A software developer specializing in building user-friendly 
+            websites and innovative software solutions.
+          </p>
+
+          <div class="header-btns">
+            <a href="#contact" class="btn btn-cta">Contact me</a>
+            <a href="#work" class="btn btn-secondary">See my work</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="work">
+        <div class="container">
+          <h2 class="h2" id="work">Selected Work</h2>
+          <div class="work-boxes">
+            <div class="work-box">
+              <div class="work-textbox">
+                <!-- Add your project title here -->
+                <h3 class="h3">Noble Life Worship Centre - YouTube Management & Video Editing</h3>
+                <!-- Add small description of your project  -->
+                <p class="work-text">
+                  I manage the YouTube account and edit videos for Noble Life Worship Centre Church, ensuring high-quality content for online viewers.
+                </p>
+                <!-- Add technologies you use for video editing and management -->
+                <ol class="work-technologies">
+                  <li>Adobe Premiere Pro</li>
+                  <li>Final Cut Pro</li>
+                  <li>Filmora</li>
+                  <li>YouTube Studio</li>
+                </ol>
+            
+                <div class="work-links">
+                  <!-- Add link to the YouTube channel -->
+                  <a href="https://www.youtube.com/@noblelifeworshipcentre2090" target="_blank" rel="noopener" class="link">
+                    Visit YouTube Channel
+                  </a>
+            
+                  <!-- Add link to project source code if applicable otherwise feel free to delete or comment the markup -->
+                  <!-- <a href="#" target="_blank" rel="noopener" title="Source code">
+                    <img src="assets/images/social-links/github.svg" alt="GitHub" loading="lazy" />
+                  </a> -->
+                </div>
+              </div>
+            
+              <!-- Update img src and alt attribute  -->
+              <picture class="work-img">
+                <img loading="lazy" src="assets/images/work/youtube.png" alt="Noble Life Worship Centre - YouTube" />
+              </picture>
+            </div>
+            
+            <div class="work-box">
+              <div class="work-textbox">
+                <!-- Add your project title here -->
+                <h3 class="h3">School Website</h3>
+                <!-- Add small description of your project  -->
+                <p class="work-text">
+                  A comprehensive website with a content management system for easier management.
+                </p>
+                <!-- Add technologies you used to build the project -->
+                <ol class="work-technologies">
+                  <li>Python</li>
+                  <li>Laravel</li>
+                  <li>MySql</li>
+                  <li>PHP</li>
+                </ol>
+
+                <div class="work-links">
+                  <!-- Add url of project in href attribute -->
+                  <a href="http://transformationacademyghana.atwebpages.com/" target="_blank" rel="noopener" class="link"
+                    >Explore this project</a
+                  >
+
+                  <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    title="Source code"
+                  >
+                    <img
+                      src="assets/images/social-links/github.svg"
+                      alt="GitHub"
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
+              </div>
+
+         <!-- Update img src and alt attribute  -->
+
+              <picture class="work-img">
+                <img
+                  loading="lazy"
+                  src="assets/images/work/transfo.jpg"
+                  alt="SwiftSale"
+                />
+              </picture>
+            </div>
+            <div class="work-box">
+              <div class="work-textbox">
+                <!-- Add your project title here -->
+                <h3 class="h3">SwiftSale</h3>
+                <!-- Add small description of your project  -->
+
+                <p class="work-text">A Sales and Inventory Management System</p>
+                <ol class="work-technologies">
+                  <li>Python</li>
+                  <li>Laravel</li>
+                  <li>Postgresql</li>
+                  <li>PHP</li>
+                </ol>
+                <div class="work-links">
+                  <!-- Add url of project in href attribute -->
+                  <a href="https://marthansultd.com/" target="_blank" rel="noopener" class="link"
+                    >Explore this project</a
+                  >
+
+                     <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    title="Source code"
+                  >
+                    <img
+                      src="assets/images/social-links/github.svg"
+                      alt="GitHub"
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
+              </div>
+         <!-- Update img src and alt attribute  -->
+              <picture class="work-img">
+                <img
+                  loading="lazy"
+                  src="assets/images/work/swift.JPG"
+                  alt="oshiki"
+                />
+              </picture>
+            </div>
+            <div class="work-box">
+              <div class="work-textbox">
+                <!-- Add your project title here -->
+                <h3 class="h3">ev.oshikii.com</h3>
+                <!-- Add small description of your project  -->
+                <p class="work-text">
+                  Event Ticketing and Paid Voting Web application
+                </p>
+                <ol class="work-technologies">
+                  <li>Laravel</li>
+                  <li>Elexir</li>
+                  <li>Python</li>
+                </ol>
+                <div class="work-links">
+                  <!-- Add url of project in href attribute -->
+                  <a href="https://ev.oshikii.com/" target="_blank" rel="noopener" class="link"
+                    >Explore this project</a
+                  >
+
+                   <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    title="Source code"
+                  >
+                    <img
+                      src="assets/images/social-links/github.svg"
+                      alt="GitHub"
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
+              </div>
+         <!-- Update img src and alt attribute  -->
+              <picture class="work-img">
+                <img
+                  loading="lazy"
+                  src="assets/images/work/oshiki.jpg"
+                  alt="contribute dev"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+       
+      <!-- Update skills-img src, alt  and title attributes I have added some other logos in assets/images/skill for your convenience feel free to pick one if required  -->
+
+      <section class="skills">
+        <div class="container">
+          <h2 class="h2" id="skills">My Toolkit</h2>
+          <div class="skills-imgs">
+                <img src="assets/images/skills/react.webp" alt="React" class="skills-img" loading="lazy" title="React">
+                <img src="assets/images/skills/php-svgrepo-com.svg" alt="PHP" class="skills-img" loading="lazy" title="Svelte">
+                 <img src="assets/images/skills/python-svgrepo-com.svg" alt="Python" class="skills-img" loading="lazy" title="Typescript">
+                 <img src="assets/images/skills/laravel-svgrepo-com.svg" alt="Laravel" class="skills-img" loading="lazy" title="Web Accessibility">
+                 <img src="assets/images/skills/shell.webp" alt="Shell" class="skills-img" loading="lazy" title="Shell">
+                 <img src="assets/images/skills/next-js.webp" alt="NextJS" class="skills-img" loading="lazy" title="NextJS">
+                 <img src="assets/images/skills/graphql.webp" alt="Graph Ql" class="skills-img" loading="lazy" title="Graph QL">
+                 <img src="assets/images/skills/git.webp" alt="Git" class="skills-img" loading="lazy" title="Git">
+                 <img src="assets/images/skills/html.webp" alt="CSS" class="skills-img" loading="lazy" title="CSS">
+                 <img src="assets/images/skills/js.webp" alt="JavaScript" class="skills-img" loading="lazy" title="JavaScript">
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+
+      <section>
+        <h2 class="h2">Testimonials</h2>
+        <div class="container">
+          <ol class="testimonials">
+            <li class="testimonial">
+              <blockquote class="testimonial-text">
+                He is a fantastic video editor with a keen sense for storytelling and content creation. His ability to bring raw footage to life through seamless editing is remarkable.
+              </blockquote>
+              <figure class="testimonial-author">
+                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="Ama" loading="lazy" />
+                <figcaption>
+                  <h3 class="testimonial-author-name">Ama Asiedu-Poku</h3>
+                  <p class="testimonial-author-job">COO ASP Ventures</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="testimonial">
+              <blockquote class="testimonial-text">
+                Talented video editor, experienced with various editing styles, and can make any project visually engaging. He is easy to work with and a self-starter. I would work with him again.
+              </blockquote>
+              <figure class="testimonial-author">
+                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="Phebe" loading="lazy" />
+                <figcaption>
+                  <h3 class="testimonial-author-name">Phebe Adjei</h3>
+                  <p class="testimonial-author-job">User</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="testimonial">
+              <blockquote class="testimonial-text">
+                He is a true professional with amazing video editing skills. His creativity, attention to detail, and ability to enhance visual storytelling set him apart.
+              </blockquote>
+              <figure class="testimonial-author">
+                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="Simon" loading="lazy" />
+                <figcaption>
+                  <h3 class="testimonial-author-name">Simon Adei</h3>
+                  <p class="testimonial-author-job">User</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="testimonial">
+              <blockquote class="testimonial-text">
+                Philip is one of my favorite people to work with. He’s my go-to colleague for video editing projects because he understands how to tackle creative challenges with expertise.
+              </blockquote>
+              <figure class="testimonial-author">
+                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="Phillip" loading="lazy" />
+                <figcaption>
+                  <h3 class="testimonial-author-name">Bright Otoo</h3>
+                  <p class="testimonial-author-job">Colleague</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="testimonial">
+              <blockquote class="testimonial-text">
+                I had the pleasure of working with Makafui, and he always brought professionalism and efficiency to every video editing project. Her ability to coordinate and collaborate is commendable.
+              </blockquote>
+              <figure class="testimonial-author">
+                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="Rama" loading="lazy" />
+                <figcaption>
+                  <h3 class="testimonial-author-name">Mrs. Rama Bannor</h3>
+                  <p class="testimonial-author-job">Former Colleague at Con-imedia</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="testimonial">
+              <blockquote class="testimonial-text">
+                Philip is a wonderful client to work with. He provides clear expectations, and his feedback is always constructive, making the video editing process seamless and enjoyable.
+              </blockquote>
+              <figure class="testimonial-author">
+                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="Ebenezer" loading="lazy" />
+                <figcaption>
+                  <h3 class="testimonial-author-name">Ebenezer Boakye</h3>
+                  <p class="testimonial-author-job">Client</p>
+                </figcaption>
+              </figure>
+            </li>
+          </ol>
+        </div>
+      </section>
+      
+    
+
+      <section class="contact">
+        <div class="container">
+          <h2 class="h2" id="contact">Send Message</h2>
+          <div class="contact-content">
+            <div class="contact-textbox">
+              <!-- Please comment this component if you're not available for hire -->
+              <strong href="#" class="hire-alert">
+                <span class="indicator"></span>
+                Available to Work
+              </strong>
+              <p class="contact-text">
+                As a software engineer, I construct web interfaces and design
+                systems with a special love for accessibility and performance. I tend to code things from scratch and enjoy
+                bringing ideas to life.
+              </p> 
+              <p class="contact-text">
+                I'm also a video editor, and in my spare time, I create and edit digital content.
+              </p>
+            </div>            
+            <form action="https://formspree.io/f/mrbpbabz" method="POST" class="formcarry-form">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  inputmode="email"
+                />
+              </div>
+              <div class="form-field">
+                <label for="message">How can I help you?</label>
+                <textarea name="message" id="message" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-cta">Send</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <!-- Update href and src attributes -->
+          <nav>
+            <ol class="footer-links">
+              <li class="footer-link">
+                <a title="GitHub" href="https://github.com/Iam-Makafui" target="_blank" rel="noopener"
+                  ><img
+                    loading="lazy"
+                    src="assets/images/social-links/github.svg"
+                    alt="GitHub"
+                /></a>
+              </li>
+              <li class="footer-link">
+                <a title="Linkedin" href="www.linkedin.com/in/phillip-makafui-317490192" target="_blank" rel="noopener"
+                  ><img
+                    loading="lazy"
+                    src="assets/images/social-links/linkedin.svg"
+                    alt="Linkedin"
+                /></a>
+              </li>
+              <li class="footer-link">
+                <a title="Twitter" href="https://x.com/IamMakafui" target="_blank" rel="noopener"
+                  ><img
+                    loading="lazy"
+                    src="assets/images/social-links/twitter.svg"
+                    alt="Twitter"
+                /></a>
+              </li>
+            </ol>
+          </nav>
+          <p class="footer-text">
+            &copy; <span>2025</span> - Designed & developed by <a target="_blank" rel="noopener" href="https://github.com/Iam-Makafui">Phillip Makafui</a>
+          </p>
+          <label class="theme-switch" for="theme-switch">
+            <span>Dark Theme</span>
+            <input type="checkbox" id="theme-switch" role="switch"/>
+          </label>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
