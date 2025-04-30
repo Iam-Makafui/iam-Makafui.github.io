@@ -1,0 +1,34 @@
+           <div class="work-box">
+              <div class="work-textbox">
+                <!-- Add your project title here -->
+                <h3 class="h3">Noble Life Worship Centre - YouTube Management & Video Editing</h3>
+                <!-- Add small description of your project  -->
+                <p class="work-text">
+                  I manage the YouTube account and edit videos for Noble Life Worship Centre Church, ensuring high-quality content for online viewers.
+                </p>
+                <!-- Add technologies you use for video editing and management -->
+                <ol class="work-technologies">
+                  <li>Adobe Premiere Pro</li>
+                  <li>Final Cut Pro</li>
+                  <li>Filmora</li>
+                  <li>YouTube Studio</li>
+                </ol>
+            
+                <div class="work-links">
+                  <!-- Add link to the YouTube channel -->
+                  <a href="https://www.youtube.com/@noblelifeworshipcentre2090" target="_blank" rel="noopener" class="link">
+                    Visit YouTube Channel
+                  </a>
+            
+                  <!-- Add link to project source code if applicable otherwise feel free to delete or comment the markup -->
+                  <!-- <a href="#" target="_blank" rel="noopener" title="Source code">
+                    <img src="assets/images/social-links/github.svg" alt="GitHub" loading="lazy" />
+                  </a> -->
+                </div>
+              </div>
+            
+              <!-- Update img src and alt attribute  -->
+              <picture class="work-img">
+                <img loading="lazy" src="assets/images/work/youtube.png" alt="Noble Life Worship Centre - YouTube" />
+              </picture>
+            </div>
