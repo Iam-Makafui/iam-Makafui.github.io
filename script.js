@@ -101,54 +101,72 @@
     })
   );
 
-  /* ---------- Hero: calm flowing lines ---------- */
+  /* ---------- Hero: flowing lines (react to the mouse) ---------- */
   (function heroField() {
     const canvas = $(".hero-canvas");
     if (!canvas || reduced) return;
     const ctx = canvas.getContext("2d");
     const hero = $(".hero");
     let w, h, particles = [], running = true, t = 0;
+    const mouse = { x: -9999, y: -9999, tx: -9999, ty: -9999 };
+    const lerp = (a, b, k) => a + (b - a) * k;
     const accent = () => getComputedStyle(root).getPropertyValue("--accent").trim() || "#c8ff3e";
     let color = accent();
     new MutationObserver(() => { color = accent(); ctx.clearRect(0, 0, w, h); })
       .observe(root, { attributes: true, attributeFilter: ["data-theme"] });
 
     function spawn(rand) {
-      return { x: Math.random() * w, y: Math.random() * h, life: rand ? Math.random() * 200 : 0, max: 140 + Math.random() * 200, s: 0.3 + Math.random() * 0.8 };
+      return { x: Math.random() * w, y: Math.random() * h, life: rand ? Math.random() * 200 : 0, max: 120 + Math.random() * 220, s: 0.4 + Math.random() * 1.1 };
     }
     function resize() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = hero.clientWidth; h = hero.clientHeight;
       canvas.width = w * dpr; canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      particles = Array.from({ length: Math.round(Math.min(700, (w * h) / 2200)) }, () => spawn(true));
+      particles = Array.from({ length: Math.round(Math.min(1400, (w * h) / 1100)) }, () => spawn(true));
     }
     const field = (x, y) =>
-      Math.sin(x * 0.0015 + t * 0.2) * Math.cos(y * 0.002 - t * 0.15) * 2 + Math.sin((x + y) * 0.001 + t * 0.1);
+      Math.sin(x * 0.0016 + t * 0.25) * Math.cos(y * 0.0021 - t * 0.2) * 2.2 + Math.sin((x + y) * 0.0011 + t * 0.15) * 1.3;
 
     function frame() {
       if (!running) return;
       t += 0.01;
+      mouse.x = lerp(mouse.x, mouse.tx, 0.12);
+      mouse.y = lerp(mouse.y, mouse.ty, 0.12);
       ctx.globalCompositeOperation = "destination-out";
-      ctx.fillStyle = "rgba(0,0,0,0.07)";
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
       ctx.fillRect(0, 0, w, h);
       ctx.globalCompositeOperation = "source-over";
       ctx.strokeStyle = color;
+      ctx.lineWidth = 1;
       for (const p of particles) {
         const a = field(p.x, p.y), px = p.x, py = p.y;
-        p.x += Math.cos(a) * p.s; p.y += Math.sin(a) * p.s; p.life++;
-        ctx.globalAlpha = Math.max(0, Math.sin((p.life / p.max) * Math.PI)) * 0.35;
+        let vx = Math.cos(a) * p.s * 1.4, vy = Math.sin(a) * p.s * 1.4;
+        const dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < 26000) {
+          const f = (1 - d2 / 26000) * 4, d = Math.sqrt(d2) || 1;
+          vx += (dx / d) * f * 0.6 - (dy / d) * f;
+          vy += (dy / d) * f * 0.6 + (dx / d) * f;
+        }
+        p.x += vx; p.y += vy; p.life++;
+        ctx.globalAlpha = Math.max(0, Math.sin((p.life / p.max) * Math.PI)) * 0.55;
         ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(p.x, p.y); ctx.stroke();
-        if (p.life > p.max || p.x < 0 || p.x > w || p.y < 0 || p.y > h) Object.assign(p, spawn(false));
+        if (p.life > p.max || p.x < -10 || p.x > w + 10 || p.y < -10 || p.y > h + 10) Object.assign(p, spawn(false));
       }
       ctx.globalAlpha = 1;
       requestAnimationFrame(frame);
     }
-    new IntersectionObserver(([e]) => {
-      const was = running;
-      running = e.isIntersecting;
-      if (running && !was) requestAnimationFrame(frame);
-    }).observe(hero);
+
+    hero.addEventListener("pointermove", (e) => {
+      const r = hero.getBoundingClientRect();
+      mouse.tx = e.clientX - r.left; mouse.ty = e.clientY - r.top;
+      if (mouse.x < -1000) { mouse.x = mouse.tx; mouse.y = mouse.ty; }
+    });
+    hero.addEventListener("pointerleave", () => { mouse.tx = mouse.ty = -9999; });
+
+    const resume = () => { if (!running) { running = true; requestAnimationFrame(frame); } };
+    new IntersectionObserver(([e]) => { if (e.isIntersecting) resume(); else running = false; }).observe(hero);
+    document.addEventListener("visibilitychange", () => { if (document.hidden) running = false; else resume(); });
     let rt;
     window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(resize, 150); });
     resize();

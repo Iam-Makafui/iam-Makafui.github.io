@@ -224,9 +224,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
   margin-top: calc(-1 * var(--nav-h));
   padding-top: calc(var(--nav-h) + clamp(72px, 12vw, 150px));
 }
-.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: .8; }
+.hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
 .hero::after {
-  content: ""; position: absolute; inset: auto 0 0 0; height: 40%; z-index: 0; pointer-events: none;
+  content: ""; position: absolute; inset: auto 0 0 0; height: 22%; z-index: 0; pointer-events: none;
   background: linear-gradient(transparent, var(--bg));
 }
 .hero-inner { position: relative; z-index: 1; display: grid; gap: 28px; justify-items: start; }
