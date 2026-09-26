@@ -1,801 +1,710 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-
-    <!-- Read and update content attributes accordingly  -->
-    
+    <meta name="theme-color" content="#0b0b0a" />
+    <title>Phillip Makafui — Software Developer</title>
     <meta
       name="description"
-      content="Welcome to my portfolio! I'm a passionate software developer specializing in building user-friendly websites and 
-              innovative software solutions. My focus is on delivering clean, efficient, and impactful code that brings ideas to life."
+      content="Phillip Makafui is a software developer in Accra, Ghana, building platforms, websites and automation for clients in Ghana, Kenya, South Africa and Botswana."
     />
 
-    <!-- Google / Search Engine Tags -->
-<meta itemprop="name" content="Phillip Makafui's Portfolio">
-<meta itemprop="description" content="Welcome to my portfolio! I'm a passionate software developer specializing in building user-friendly websites and innovative software solutions. My focus is on delivering clean, efficient, and impactful code that brings ideas to life.">
+    <!-- Google / Search Engine -->
+    <meta itemprop="name" content="Phillip Makafui — Software Developer" />
+    <meta itemprop="description" content="Software developer in Accra building platforms, websites and automation across Africa." />
+    <meta itemprop="image" content="assets/images/sharing-card.png" />
 
-<!-- Reference screenshot of updated site's header in place of content -->
-<meta itemprop="image" content="assets/images/sharing-card.png">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Phillip Makafui — Software Developer" />
+    <meta property="og:description" content="Software developer in Accra building platforms, websites and automation across Africa." />
+    <meta property="og:image" content="assets/images/sharing-card.png" />
 
-<!-- Facebook Meta Tags -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Phillip Makafui's Portfolio">
-<meta property="og:description" content="Welcome to my portfolio! I'm a passionate software developer specializing in building user-friendly websites and innovative software solutions. My focus is on delivering clean, efficient, and impactful code that brings ideas to life.">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Phillip Makafui — Software Developer" />
+    <meta name="twitter:description" content="Software developer in Accra building platforms, websites and automation across Africa." />
+    <meta name="twitter:image" content="assets/images/sharing-card.png" />
 
-<!-- Reference screenshot of updated site's header in content -->
-<meta property="og:image" content="assets/images/sharing-card.png">
+    <link rel="shortcut icon" href="assets/images/favicons.png" type="image/png" />
 
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Phillip Makafui's Portfolio">
-<meta name="twitter:description" content="Welcome to my portfolio! I'm a passionate software developer specializing in building user-friendly websites and innovative software solutions. My focus is on delivering clean, efficient, and impactful code that brings ideas to life.">
-
-<!-- Reference screenshot of updated site's header in content -->
-<meta name="twitter:image" content="assets/images/sharing-card.png">
-
-
-<!-- Update favicon href attribute with image of yourself -->
+    <link rel="preload" href="assets/fonts/Mona-Sans.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="shortcut icon"
-      href="assets/images/favicons.png"
-      type="image/png"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
     />
 
-    <!-- Preloading fonts for better performance -->
+    <!-- Set theme before paint (no flash) -->
+    <script>
+      (function () {
+        var t = "dark";
+        try { t = localStorage.getItem("theme") || "dark"; } catch (e) {}
+        document.documentElement.setAttribute("data-theme", t);
+        document.documentElement.classList.add("js");
+      })();
+    </script>
 
-    <link
-      rel="preload"
-      href="assets/fonts/Mona-Sans.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
-    <link rel="stylesheet" href="style.css"  />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-
-    <!-- Your name here -->
-    <title>Phillip Makafui's Portfolio</title>
   </head>
 
   <body>
+    <!-- ============ LOADER ============ -->
+    <div class="loader" aria-hidden="true">
+      <div class="loader-inner">
+        <span class="loader-name">Phillip Makafui</span>
+        <span class="loader-count mono"><span data-loader-count>00</span></span>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
 
-    <script>
-      const theme = localStorage.getItem("theme") || "dark";
-      document.body.classList.add(theme);
-    </script>
+    <!-- Cursor, grain, progress -->
+    <div class="cursor" aria-hidden="true"><span class="cursor-label">View</span></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><span></span></div>
 
-    <header class="header">
+    <!-- Floating preview for work list -->
+    <div class="preview" aria-hidden="true">
+      <div class="preview-inner"><img alt="" /></div>
+    </div>
 
-      <div class="menu-btn-container">
-        <div class="container">
-          <button type="button"  class="menu-btn">menu</button>
-        </div>
+    <!-- ============ NAV ============ -->
+    <header class="nav">
+      <a href="#top" class="nav-logo" aria-label="Back to top">
+        <span class="nav-mark">PM</span>
+        <span class="nav-name">Phillip Makafui</span>
+      </a>
+
+      <div class="nav-clock mono" aria-label="Local time in Accra">
+        <span class="pulse"></span> Accra <span data-clock>--:--:--</span> GMT
       </div>
 
-      <nav class="nav hidden">
-        <ol class="nav-items">
-          <li class="nav-item"><a href="#">Home</a></li>
-          <li class="nav-item"><a href="#work">My Projects</a></li>
-          <li class="nav-item"><a href="#skills">My Skills</a></li>
-          <li class="nav-item">
-            <a href="#contact" data-focused="last-focused">Contact</a>
-          </li>
-        </ol>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#towgo">Featured</a>
+        <a href="#work">Work</a>
+        <a href="#toolkit">Toolkit</a>
+        <a href="#words">Words</a>
+        <a href="#contact" class="nav-cta">Let's talk</a>
       </nav>
 
-      <div class="container">
-        <div class="header-textbox">
-          <!-- My name and job title -->
-          <h1 class="h1">
-            <span>Hi, I'm Phillip Makafui</span>
-            <span>Software Developer</span>
-          </h1>
-
-          <!-- An introductory paragraph about myself -->
-          <p class="header-text">
-            A software developer specializing in building user-friendly 
-            websites and innovative software solutions.
-          </p>
-
-          <div class="header-btns">
-            <a href="#contact" class="btn btn-cta">Contact me</a>
-            <a href="#work" class="btn btn-secondary">See my work</a>
-          </div>
-        </div>
+      <div class="nav-actions">
+        <button type="button" class="icon-btn kbd-btn" data-palette-open aria-label="Open command menu">
+          <span class="mono">⌘K</span>
+        </button>
+        <button type="button" class="icon-btn" data-theme-toggle aria-label="Toggle colour theme">
+          <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span>
+          <span class="sr-only">Menu</span>
+        </button>
       </div>
     </header>
 
-    <main>
-
-      <section class="work">
-        <div class="container">
-          <h2 class="h2" id="work">Selected Work</h2>
-          <div class="work-boxes">
-            <div class="work-box">
-    <div class="work-textbox">
-        <!-- Project title -->
-        <h3 class="h3">Institute of Leadership & Strategy</h3>
-        
-        <!-- Short description -->
-        <p class="work-text">
-            A modern, professional website for the Institute of Leadership & Strategy (ILS) in Ghana — an executive development institute offering leadership training, strategy programmes, events, and facility rentals across Africa.
-        </p>
-        
-        <!-- Technologies used -->
-        <ol class="work-technologies">
-            <li>Modern Technology Stack</li>
-            <li>Secure & Scalable Architecture</li>
-            <li>Responsive & Professional UI/UX</li>
-            <li>SEO-Optimized Structure</li>
-        </ol>
-        
-        <div class="work-links">
-            <!-- Live project link -->
-            <a href="https://www.ilsexecutive.com" target="_blank" rel="noopener" class="link">
-                Explore this project
-            </a>
-            
-            <!-- GitHub link (hidden due to NDA) -->
-            <span class="text-muted" title="Source code not available due to NDA">
-                <img src="assets/images/social-links/github.svg" alt="GitHub" loading="lazy" style="opacity:0.4;" />
-            </span>
-        </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <ol>
+        <li><a href="#towgo"><span class="mono">01</span>Featured</a></li>
+        <li><a href="#work"><span class="mono">02</span>Work</a></li>
+        <li><a href="#toolkit"><span class="mono">03</span>Toolkit</a></li>
+        <li><a href="#words"><span class="mono">04</span>Words</a></li>
+        <li><a href="#contact"><span class="mono">05</span>Contact</a></li>
+      </ol>
     </div>
-    
-    <!-- Project screenshot – update the image path -->
-    <picture class="work-img">
-        <img
-            loading="lazy"
-            src="assets/images/work/ILS.png"
-            alt="Institute of Leadership & Strategy - Executive Training Website"
-        />
-    </picture>
-</div>
 
-            <div class="work-box">
-   
-   
-              <div class="work-textbox">
-              <!-- Project title -->
-              <h3 class="h3">Dew North</h3>
-              
-              <!-- Short description -->
-              <p class="work-text">
-                  Dedicated to fostering improvements in the health and wellbeing of artisans through economic empowerment. 
-                  Northern Ghana's bridge to the world.
-              </p>
-              
-              <!-- Technologies / Tools used (customize as needed) -->
-              <ol class="work-technologies">
-                  <li>HTML5</li>
-                  <li>SCSS</li>
-                  <li>JavaScript</li>
-                  <li>Responsive Design</li>
-                  <li>Static Site</li>
-              </ol>
-              
-              <div class="work-links">
-                  <!-- Live project link -->
-                  <a href="https://www.dewnorth.org/" target="_blank" rel="noopener" class="link">
-                      Visit Dew North
-                  </a>
-                  
-                  <!-- GitHub link (update if you have a public repo, otherwise remove or point to a placeholder) -->
-                  <a href="#" target="_blank" rel="noopener" title="Source code">
-                      <img src="assets/images/social-links/github.svg" alt="GitHub" loading="lazy" />
-                  </a>
-              </div>
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <section class="hero">
+        <canvas class="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-glow" aria-hidden="true"></div>
+
+        <div class="wrap hero-inner">
+          <div class="hero-top">
+            <p class="eyebrow mono reveal">
+              <span class="status"><span class="indicator"></span>Available to work</span>
+              <span class="sep">/</span> Software Developer <span class="sep">/</span> Accra, Ghana
+            </p>
           </div>
-          
-          <!-- Project screenshot – replace with your actual Dew North screenshot -->
-          <picture class="work-img">
-              <img
-                  loading="lazy"
-                  src="assets/images/work/dewnorth.png"
-                  alt="Dew North – Empowering artisans in Northern Ghana"
-              />
-          </picture>
+
+          <h1 class="hero-title" aria-label="Phillip Makafui">
+            <span class="line"><span class="split">Phillip</span></span>
+            <span class="line line-2"><span class="split">Makafui</span><span class="hero-star" aria-hidden="true">✦</span></span>
+          </h1>
+
+          <div class="hero-bottom">
+            <p class="hero-lede reveal">
+              I build software that has to work in the real world —
+              <em>dispatch platforms, USSD games, payment flows</em> and websites
+              for teams in Ghana, Kenya, South Africa and Botswana.
+            </p>
+
+            <div class="hero-ctas reveal">
+              <a href="#work" class="btn btn-primary magnetic"><span>See my work</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+              <a href="#contact" class="btn btn-ghost magnetic"><span>Contact me</span></a>
+            </div>
+
+            <dl class="hero-stats reveal">
+              <div><dt class="mono">Projects shipped</dt><dd><span data-count="14">0</span></dd></div>
+              <div><dt class="mono">Countries</dt><dd><span data-count="4">0</span></dd></div>
+              <div><dt class="mono">Endpoints, latest build</dt><dd><span data-count="237">0</span></dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <a href="#towgo" class="scroll-cue mono" aria-label="Scroll to featured project">
+          <span>Scroll</span><i></i>
+        </a>
+      </section>
+
+      <!-- ============ MARQUEE ============ -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>Flutter</span><b>✦</b><span>Flask</span><b>✦</b><span>Laravel</span><b>✦</b><span>PostGIS</span><b>✦</b><span>Python</span><b>✦</b><span>Realtime</span><b>✦</b><span>Mobile Money</span><b>✦</b><span>USSD</span><b>✦</b><span>Automation</span><b>✦</b>
+          <span>Flutter</span><b>✦</b><span>Flask</span><b>✦</b><span>Laravel</span><b>✦</b><span>PostGIS</span><b>✦</b><span>Python</span><b>✦</b><span>Realtime</span><b>✦</b><span>Mobile Money</span><b>✦</b><span>USSD</span><b>✦</b><span>Automation</span><b>✦</b>
+        </div>
       </div>
 
-                <div class="work-box">
-                  <div class="work-textbox">
-                      <!-- Project title -->
-                      <h3 class="h3">Kucheza</h3>
-                      
-                      <!-- Short description -->
-                      <p class="work-text">
-                          A daily trivia game for Safaricom users in Kenya. Players answer questions via WEB/USSD/SMS and win airtime & cash prizes.
-                      </p>
-                      
-                      <!-- Technologies used -->
-                      <ol class="work-technologies">
-                          <li>Laravel</li>
-                          <li>jQuery</li>
-                          <li>Bootstrap</li>
-                          <li>PHP</li>
-                          <li>Safaricom Daraja API</li>
-                      </ol>
-                      
-                      <div class="work-links">
-                          <!-- Live project link -->
-                          <a href="https://kucheza.tekvad.com" target="_blank" rel="noopener" class="link">
-                              Explore this project
-                          </a>
-                          
-                          <!-- GitHub link (remove or update if you have a public repo) -->
-                          <a href="#" target="_blank" rel="noopener" title="Source code">
-                              <img src="assets/images/social-links/github.svg" alt="GitHub" loading="lazy" />
-                          </a>
-                      </div>
-                  </div>
-                  
-                  <!-- Project screenshot – update the image path once you add the screenshot -->
-                  <picture class="work-img">
-                      <img 
-                          loading="lazy" 
-                          src="assets/images/work/kucheza.jpg" 
-                          alt="Kucheza – Trivia game dashboard" 
-                      />
-                  </picture>
-                </div>
-
-                  <div class="work-box">
-                  <div class="work-textbox">
-                    <!-- Project title -->
-                    <h3 class="h3">Veterinary Council of Ghana (VCG)</h3>
-                    
-                    <!-- Description -->
-                    <p class="work-text">
-                      The official website for the Veterinary Council of Ghana (VCG), providing information on veterinary standards, education, licensing, and updates. I developed the UI and the backend, integrating dynamic features for a user-friendly experience.
-                    </p>
-
-                    <!-- Technologies used -->
-                    <ol class="work-technologies">
-                      <li>Laravel</li>
-                      <li>Flask (Python API)</li>
-                      <li>PostgreSQL</li>
-                    </ol>
-
-                    <div class="work-links">
-                      <!-- Website and GitHub links -->
-                      <a href="https://vcg.gov.gh" target="_blank" rel="noopener" class="link">Visit official site</a>
-                      <a href="https://vcg.gov.gh" target="_blank" rel="noopener" title="Source code">
-                        <img src="assets/images/social-links/github.svg" alt="GitHub" loading="lazy" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <!-- Project image -->
-                  <picture class="work-img">
-                    <img loading="lazy" src="assets/images/work/vcg-ghana.jpg" alt="Veterinary Council of Ghana Website" />
-                  </picture>
-                </div>
-
-
-                  <div class="work-box">
-                  <div class="work-textbox">
-                    <!-- Project title -->
-                    <h3 class="h3">CIMS-WeCare Church Welfare System</h3>
-                    
-                    <!-- Description -->
-                    <p class="work-text">
-                      A branch of the Church Information Management System (CIMS) in development, WeCare facilitates member welfare payments, dues tracking, aid distribution, monitoring, and welfare report generation.
-                    </p>
-
-                    <!-- Technologies used -->
-                    <ol class="work-technologies">
-                      <li>Laravel</li>
-                      <li>Flask (Python API)</li>
-                      <li>PostgreSQL</li>
-                    </ol>
-
-                    <div class="work-links">
-                      <!-- Placeholder link, update with actual repo if available -->
-                      <a href="http://welfare.noblelifeag.com/" target="_blank" rel="noopener" class="link">Explore this project</a>
-                      <a href="http://welfare.noblelifeag.com/" target="_blank" rel="noopener" title="Source code">
-                        <img src="assets/images/social-links/github.svg" alt="GitHub" loading="lazy" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <!-- Placeholder image, update with actual project image -->
-                  <picture class="work-img">
-                    <img loading="lazy" src="assets/images/work/cims-wecare.jpg" alt="CIMS-WeCare System" />
-                  </picture>
-                </div>
-
-                <div class="work-box">
-                  <div class="work-textbox">
-                    <!-- Project title -->
-                    <h3 class="h3">Momo Spin</h3>
-                    
-                    <!-- Description -->
-                    <p class="work-text">
-                      A third-party game app developed in collaboration with other developers for MTN in South Africa. Customers register with their Momo numbers, make payments, and spin a wheel to win random prizes. I was responsible for the UI and API integration.
-                    </p>
-
-                    <!-- Technologies used -->
-                    <ol class="work-technologies">
-                      <li>Laravel</li>
-                      <li>JavaScript (WheelJS)</li>
-                    </ol>
-
-                    <div class="work-links">
-                      <!-- Placeholder link, update with actual repo if available -->
-                      <a href="https://bhodzamomo.chantikh.com/" target="_blank" rel="noopener" class="link">Explore this project</a>
-                      <a href="https://bhodzamomo.chantikh.com/" target="_blank" rel="noopener" title="Source code">
-                        <img src="assets/images/social-links/github.svg" alt="GitHub" loading="lazy" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <!-- Placeholder image, update with actual project image -->
-                  <picture class="work-img">
-                    <img loading="lazy" src="assets/images/work/momo-spin.jpg" alt="Momo Spin Game" />
-                  </picture>
+      <!-- ============ FEATURED: TOWGO ============ -->
+      <section class="featured" id="towgo">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="section-index mono">01 — Featured build</span>
+            <h2 class="h2 reveal">
+              Tow<span class="accent-towgo">Go</span>
+              <em>vehicle recovery, coordinated.</em>
+            </h2>
           </div>
 
-          <div class="work-box">
-            <div class="work-textbox">
-              <!-- Project title -->
-              <h3 class="h3">Orange Box (Pick a Box)</h3>
-              
-              <!-- Description -->
-              <p class="work-text">
-                A third-party app for Orange network in Botswana, currently in the testing phase. Orange Money subscribers pay to select a random box from a stack to win prizes. I collaborated with other developers and was responsible for the entire UI and API integration.
+          <div class="featured-grid">
+            <div class="featured-copy reveal">
+              <p class="lead">
+                A full platform for Greater Accra that takes a driver from
+                “I'm stuck” to a settled payout. It verifies towing cover,
+                sends each job to one truck only, records photo evidence and
+                handover codes, keeps custody records for authorities, and
+                settles money through a double-entry ledger.
+              </p>
+              <p>
+                Two Flutter apps (vehicle owners and tow drivers), six Laravel
+                portal areas for dispatchers, operators, insurers, fleets,
+                officers and storage yards — all on one modular Flask API
+                backed by PostgreSQL and PostGIS.
               </p>
 
-              <!-- Technologies used -->
-              <ol class="work-technologies">
-                <li>Laravel</li>
-                <li>Vanilla JavaScript</li>
-              </ol>
+              <ul class="chips">
+                <li>Flutter ×2</li><li>Flask</li><li>PostgreSQL + PostGIS</li>
+                <li>Laravel</li><li>Redis · RQ</li><li>Socket.IO</li>
+                <li>Paystack MoMo</li><li>Google Routes</li><li>Docker</li>
+              </ul>
 
-              <div class="work-links">
-                <!-- Placeholder link, update with actual repo if available -->
-                <a href="https://orangeluckybox.chantikh.com" target="_blank" rel="noopener" class="link">Explore this project</a>
-                <a href="https://orangeluckybox.chantikh.com" target="_blank" rel="noopener" title="Source code">
-                  <img src="assets/images/social-links/github.svg" alt="GitHub" loading="lazy" />
+              <div class="featured-links">
+                <a href="https://towgo-portal.onrender.com/" target="_blank" rel="noopener" class="link-arrow">
+                  Visit Site
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
                 </a>
+                <span class="mono muted">Private repo · pilot in progress</span>
               </div>
             </div>
 
-            <!-- Placeholder image, update with actual project image -->
-            <picture class="work-img">
-              <img loading="lazy" src="assets/images/work/orange-luckybox.jpg" alt="Orange Box Game" />
-            </picture>
-          </div>
-
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- Project title -->
-                <h3 class="h3">Reddit Automation System</h3>
-                
-                <!-- Description -->
-                <p class="work-text">
-                  A fully automated Reddit bot suite that posts, comments, fetches top posts, analyzes engagement, and stores insights using Supabase. It integrates AI to generate content and performs real-time subreddit monitoring.
-                </p>
-            
-                <!-- Technologies used -->
-                <ol class="work-technologies">
-                  <li>Python</li>
-                  <li>PRAW (Reddit API)</li>
-                  <li>Supabase</li>
-                  <li>dotenv</li>
-                  <li>Shell Scripting</li>
-                </ol>
-            
-                
-                <div class="work-links">
-                  <!-- Add url of project in href attribute -->
-                  <a href="https://github.com/Iam-Makafui/Reddit-Bott" target="_blank" rel="noopener" class="link"
-                    >Visit GitHub Repo</a
-                  >
-
-                  <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
+            <figure class="featured-visual reveal" data-tilt>
+              <div class="featured-frame">
+                <img src="assets/images/work/towgo.png" alt="TowGo: live dispatch board, customer tracking app and driver job-offer app" loading="lazy" />
+                <span class="frame-shine" aria-hidden="true"></span>
               </div>
-            
-              <!-- Update this image with your actual Reddit bot image -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/reddit.webp"
-                  alt="Reddit Automation Bot"
-                />
-              </picture>
-            </div>
-
-
-            <div class="work-box">
-              <div class="work-textbox">
-                <h3 class="h3">Instagram Story Video Automation</h3>
-                <p class="work-text">
-                  Developed an automated system that posts random videos from a local folder to Instagram Stories at a scheduled time each day. Utilized Instagram's Graph API to facilitate direct posting, ensuring a seamless automation experience.
-                </p>
-                <ol class="work-technologies">
-                  <li>Python</li>
-                  <li>Instagram Graph API</li>
-                  <li>Requests</li>
-                  <li>Scheduling (Cron Jobs)</li>
-                </ol>
-            
-                <div class="work-links">
-                  <!-- Add url of project in href attribute -->
-                  <a href="https://github.com/Iam-Makafui/instagram-story-post-bot" target="_blank" rel="noopener" class="link"
-                    >Visit GitHub Repo</a
-                  >
-
-                  <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
-            
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/instagram.jpg"
-                  alt="Instagram Story Automation"
-                />
-              </picture>
-            </div>
-            
-
-
-            
-            
- 
-            
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- Add your project title here -->
-                <h3 class="h3">School Website</h3>
-                <!-- Add small description of your project  -->
-                <p class="work-text">
-                  A comprehensive website with a content management system for easier management.
-                </p>
-                <!-- Add technologies you used to build the project -->
-                <ol class="work-technologies">
-                  <li>Python</li>
-                  <li>Laravel</li>
-                  <li>MySql</li>
-                  <li>PHP</li>
-                </ol>
-
-                <div class="work-links">
-                  <!-- Add url of project in href attribute -->
-                  <a href="http://transformationacademyghana.atwebpages.com/" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
-
-                  <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
-
-         <!-- Update img src and alt attribute  -->
-
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/transfo.jpg"
-                  alt="SwiftSale"
-                />
-              </picture>
-            </div>
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- Add your project title here -->
-                <h3 class="h3">SwiftSale</h3>
-                <!-- Add small description of your project  -->
-
-                <p class="work-text">A Sales and Inventory Management System</p>
-                <ol class="work-technologies">
-                  <li>Python</li>
-                  <li>Laravel</li>
-                  <li>Postgresql</li>
-                  <li>PHP</li>
-                </ol>
-                <div class="work-links">
-                  <!-- Add url of project in href attribute -->
-                  <a href="https://marthansultd.com/" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
-
-                     <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
-         <!-- Update img src and alt attribute  -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/swift.JPG"
-                  alt="oshiki"
-                />
-              </picture>
-            </div>
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- Add your project title here -->
-                <h3 class="h3">ev.oshikii.com</h3>
-                <!-- Add small description of your project  -->
-                <p class="work-text">
-                  Event Ticketing and Paid Voting Web application
-                </p>
-                <ol class="work-technologies">
-                  <li>Laravel</li>
-                  <li>Elexir</li>
-                  <li>Python</li>
-                </ol>
-                <div class="work-links">
-                  <!-- Add url of project in href attribute -->
-                  <a href="https://ev.oshikii.com/" target="_blank" rel="noopener" class="link"
-                    >Explore this project</a
-                  >
-
-                   <!-- Add link to project source code in href attribute if applicable otherwise feel free to delete or comment the markup -->
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    title="Source code"
-                  >
-                    <img
-                      src="assets/images/social-links/github.svg"
-                      alt="GitHub"
-                      loading="lazy"
-                    />
-                  </a>
-                </div>
-              </div>
-         <!-- Update img src and alt attribute  -->
-              <picture class="work-img">
-                <img
-                  loading="lazy"
-                  src="assets/images/work/oshiki.jpg"
-                  alt="contribute dev"
-                />
-              </picture>
-            </div>
-            <div class="work-box">
-              <div class="work-textbox">
-                <!-- Add your project t itle here -->
-                <h3 class="h3">Noble Life Worship Centre Website</h3>
-                <!-- Add small description of your project  -->
-                <p class="work-text">
-                  A dynamic church website with a user-friendly interface and multimedia integration.
-                </p>
-                <!-- Add technologies you used to build the project -->
-                <ol class="work-technologies">
-                  <li>PHP</li>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>JavaScript</li>
-                </ol>
-            
-                <div class="work-links">
-                  <!-- Add URL of project -->
-                  <a href="http://noblelifeag.com/" target="_blank" rel="noopener" class="link">
-                    Explore this project
-                  </a>
-                </div>
-              </div>
-            
-              <!-- Update img src and alt attribute -->
-              <picture class="work-img">
-                <img loading="lazy" src="assets/images/work/noble.png" alt="Noble Life Worship Centre Website" />
-              </picture>
-            </div>
-          </div>
-        </div>
-      </section>
-       
-      <!-- Update skills-img src, alt  and title attributes I have added some other logos in assets/images/skill for your convenience feel free to pick one if required  -->
-
-      <section class="skills">
-        <div class="container">
-          <h2 class="h2" id="skills">My Toolkit</h2>
-          <div class="skills-imgs">
-                 <img src="assets/images/skills/python-svgrepo-com.svg" alt="Python" class="skills-img" loading="lazy" title="Typescript">
-                 <img src="assets/images/skills/laravel-svgrepo-com.svg" alt="Laravel" class="skills-img" loading="lazy" title="Web Accessibility">
-                 <img src="assets/images/skills/shell.webp" alt="Shell" class="skills-img" loading="lazy" title="Shell">  
-                 <img src="assets/images/skills/graphql.webp" alt="Graph Ql" class="skills-img" loading="lazy" title="Graph QL">
-                 <img src="assets/images/skills/git.webp" alt="Git" class="skills-img" loading="lazy" title="Git">
-                 <img src="assets/images/skills/html.webp" alt="CSS" class="skills-img" loading="lazy" title="CSS">
-                 <img src="assets/images/skills/js.webp" alt="JavaScript" class="skills-img" loading="lazy" title="JavaScript">
             </figure>
           </div>
+
+          <dl class="metrics">
+            <div class="metric reveal"><dd><span data-count="14">0</span></dd><dt>API modules</dt></div>
+            <div class="metric reveal"><dd><span data-count="237">0</span></dd><dt>API operations</dt></div>
+            <div class="metric reveal"><dd><span data-count="60">0</span></dd><dt>Tables · 9 schemas</dt></div>
+            <div class="metric reveal"><dd><span data-count="45">0</span>/45</dd><dt>End-to-end tests passing</dt></div>
+          </dl>
+
+          <div class="flow-wrap">
+            <p class="mono flow-label">The critical path — each step enforced in code or in the database</p>
+            <ol class="flow">
+              <li class="reveal"><b>Request</b><span>App, phone desk, fleet portal or officer.</span><code>Idempotency-Key</code></li>
+              <li class="reveal"><b>Cover check</b><span>Time-stamped decision: covered, partial, not covered or unknown.</span><code>unknown ≠ declined</code></li>
+              <li class="reveal"><b>Offer</b><span>Subscribed → primary → backup → network, ranked by ETA.</span><code>expired docs excluded</code></li>
+              <li class="reveal"><b>Accept</b><span>Row lock, then insert. A late accept gets 409.</span><code>1 active assignment</code></li>
+              <li class="reveal"><b>Recover</b><span>Condition photos and price approval before loading.</span><code>evidence required</code></li>
+              <li class="reveal"><b>Handover</b><span>One-time code to the recipient, or supervised handover.</span><code>OTP / supervised</code></li>
+              <li class="reveal"><b>Settle</b><span>Invoices, MoMo webhook, maker-checker payout.</span><code>Dr = Cr at commit</code></li>
+            </ol>
+          </div>
         </div>
       </section>
 
-      <!-- Testimonials -->
+      <!-- ============ WORK INDEX ============ -->
+      <section class="work" id="work">
+        <div class="wrap">
+          <div class="section-head section-head-row">
+            <div>
+              <span class="section-index mono">02 — Selected work</span>
+              <h2 class="h2 reveal">Everything else <em>I've shipped.</em></h2>
+            </div>
+            <div class="filters" role="group" aria-label="Filter projects">
+              <button type="button" class="filter is-active" data-filter="all">All <sup>13</sup></button>
+              <button type="button" class="filter" data-filter="platform">Platforms</button>
+              <button type="button" class="filter" data-filter="web">Websites</button>
+              <button type="button" class="filter" data-filter="game">Games</button>
+              <button type="button" class="filter" data-filter="automation">Automation</button>
+            </div>
+          </div>
 
-      <section>
-        <h2 class="h2">Testimonials</h2>
-        <div class="container">
-          <ol class="testimonials">
-            <li class="testimonial">
-              <blockquote class="testimonial-text">
-                Philip is one of the most dependable developers I've collaborated with. His approach to solving technical challenges is thoughtful and effective, making him my go-to for any development work.
-              </blockquote>
-              <figure class="testimonial-author">
-                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="Bright" loading="lazy" />
-                <figcaption>
-                  <h3 class="testimonial-author-name">Bright Otoo</h3>
-                  <p class="testimonial-author-job">Colleague</p>
-                </figcaption>
-              </figure>
+          <ol class="projects">
+            <!-- 01 ILS -->
+            <li class="project" data-cat="web" data-img="assets/images/work/ILS.png">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">01</span>
+                <span class="p-title">Institute of Leadership &amp; Strategy</span>
+                <span class="p-meta mono">Website · Ghana</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/ILS.png" alt="Institute of Leadership & Strategy website" />
+                  <div class="panel-copy">
+                    <p>A modern, professional website for the Institute of Leadership &amp; Strategy (ILS) in Ghana — an executive development institute offering leadership training, strategy programmes, events and facility rentals across Africa.</p>
+                    <ul class="chips"><li>Secure, scalable architecture</li><li>Responsive UI/UX</li><li>SEO-optimised</li></ul>
+                    <div class="panel-links">
+                      <a href="https://www.ilsexecutive.com" target="_blank" rel="noopener" class="link-arrow">Visit site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                      <span class="mono muted">Source under NDA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
-            
-            <li class="testimonial">
-              <blockquote class="testimonial-text">
-                I had the pleasure of working with Makafui on multiple software projects. His professionalism, attention to detail, and strong coding abilities made our team stronger and more efficient.
-              </blockquote>
-              <figure class="testimonial-author">
-                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="Rama" loading="lazy" />
-                <figcaption>
-                  <h3 class="testimonial-author-name">Mrs. Rama Bannor</h3>
-                  <p class="testimonial-author-job">Former Colleague at Con-imedia</p>
-                </figcaption>
-              </figure>
+
+            <!-- 02 VCG -->
+            <li class="project" data-cat="web platform" data-img="assets/images/work/vcg-ghana.jpg">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">02</span>
+                <span class="p-title">Veterinary Council of Ghana</span>
+                <span class="p-meta mono">Government · Ghana</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/vcg-ghana.jpg" alt="Veterinary Council of Ghana website" />
+                  <div class="panel-copy">
+                    <p>The official website of the Veterinary Council of Ghana, with information on veterinary standards, education, licensing and updates. I built both the UI and the backend, including the dynamic features.</p>
+                    <ul class="chips"><li>Laravel</li><li>Flask (Python API)</li><li>PostgreSQL</li></ul>
+                    <div class="panel-links">
+                      <a href="https://vcg.gov.gh" target="_blank" rel="noopener" class="link-arrow">Visit official site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
-            
-            <li class="testimonial">
-              <blockquote class="testimonial-text">
-                Working with Philip was a great experience. He clearly communicated his development needs and gave timely feedback, making collaboration on his software project smooth and productive.
-              </blockquote>
-              <figure class="testimonial-author">
-                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="Ebenezer" loading="lazy" />
-                <figcaption>
-                  <h3 class="testimonial-author-name">Ebenezer Boakye</h3>
-                  <p class="testimonial-author-job">Client</p>
-                </figcaption>
-              </figure>
+
+            <!-- 03 Kucheza -->
+            <li class="project" data-cat="game" data-img="assets/images/work/kucheza.jpg">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">03</span>
+                <span class="p-title">Kucheza</span>
+                <span class="p-meta mono">Trivia game · Kenya</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/kucheza.jpg" alt="Kucheza trivia game dashboard" />
+                  <div class="panel-copy">
+                    <p>A daily trivia game for Safaricom users in Kenya. Players answer questions over web, USSD or SMS and win airtime and cash prizes.</p>
+                    <ul class="chips"><li>Laravel</li><li>PHP</li><li>jQuery</li><li>Bootstrap</li><li>Safaricom Daraja API</li></ul>
+                    <div class="panel-links">
+                      <a href="https://kucheza.tekvad.com" target="_blank" rel="noopener" class="link-arrow">Play Kucheza <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
-            
+
+            <!-- 04 Momo Spin -->
+            <li class="project" data-cat="game" data-img="assets/images/work/momo-spin.jpg">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">04</span>
+                <span class="p-title">Momo Spin</span>
+                <span class="p-meta mono">MTN game · South Africa</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/momo-spin.jpg" alt="Momo Spin game" />
+                  <div class="panel-copy">
+                    <p>A third-party game for MTN in South Africa, built with a team. Customers register with their MoMo number, pay, and spin a wheel for random prizes. I owned the UI and the API integration.</p>
+                    <ul class="chips"><li>Laravel</li><li>JavaScript (WheelJS)</li></ul>
+                    <div class="panel-links">
+                      <a href="https://bhodzamomo.chantikh.com/" target="_blank" rel="noopener" class="link-arrow">Explore project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 05 Orange Box -->
+            <li class="project" data-cat="game" data-img="assets/images/work/orange-luckybox.jpg">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">05</span>
+                <span class="p-title">Orange Box — Pick a Box</span>
+                <span class="p-meta mono">Orange game · Botswana</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/orange-luckybox.jpg" alt="Orange Box game" />
+                  <div class="panel-copy">
+                    <p>A third-party app for the Orange network in Botswana, in testing. Orange Money subscribers pay to pick a random box from a stack and win prizes. I built the entire UI and the API integration.</p>
+                    <ul class="chips"><li>Laravel</li><li>Vanilla JavaScript</li></ul>
+                    <div class="panel-links">
+                      <a href="https://orangeluckybox.chantikh.com" target="_blank" rel="noopener" class="link-arrow">Explore project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 06 CIMS WeCare -->
+            <li class="project" data-cat="platform" data-img="assets/images/work/cims-wecare.jpg">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">06</span>
+                <span class="p-title">CIMS-WeCare</span>
+                <span class="p-meta mono">Welfare system · Church</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/cims-wecare.jpg" alt="CIMS-WeCare welfare system" />
+                  <div class="panel-copy">
+                    <p>Part of the Church Information Management System (CIMS). WeCare handles member welfare payments, dues tracking, aid distribution, monitoring and welfare reports.</p>
+                    <ul class="chips"><li>Laravel</li><li>Flask (Python API)</li><li>PostgreSQL</li></ul>
+                    <div class="panel-links">
+                      <a href="http://welfare.noblelifeag.com/" target="_blank" rel="noopener" class="link-arrow">Explore project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 07 SwiftSale -->
+            <li class="project" data-cat="platform" data-img="assets/images/work/swift.JPG">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">07</span>
+                <span class="p-title">SwiftSale</span>
+                <span class="p-meta mono">Sales &amp; inventory</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/swift.JPG" alt="SwiftSale sales and inventory system" />
+                  <div class="panel-copy">
+                    <p>A sales and inventory management system for tracking stock, sales and day-to-day business operations.</p>
+                    <ul class="chips"><li>Python</li><li>Laravel</li><li>PHP</li><li>PostgreSQL</li></ul>
+                    <div class="panel-links">
+                      <a href="https://marthansultd.com/" target="_blank" rel="noopener" class="link-arrow">Explore project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 08 Oshikii -->
+            <li class="project" data-cat="platform" data-img="assets/images/work/oshiki.jpg">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">08</span>
+                <span class="p-title">ev.oshikii.com</span>
+                <span class="p-meta mono">Ticketing &amp; voting</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/oshiki.jpg" alt="Oshikii event ticketing and voting app" />
+                  <div class="panel-copy">
+                    <p>An event ticketing and paid voting web application.</p>
+                    <ul class="chips"><li>Laravel</li><li>Elixir</li><li>Python</li></ul>
+                    <div class="panel-links">
+                      <a href="https://ev.oshikii.com/" target="_blank" rel="noopener" class="link-arrow">Explore project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 09 Dew North -->
+            <li class="project" data-cat="web" data-img="assets/images/work/dewnorth.png">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">09</span>
+                <span class="p-title">Dew North</span>
+                <span class="p-meta mono">Non-profit · Ghana</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/dewnorth.png" alt="Dew North website" />
+                  <div class="panel-copy">
+                    <p>Dedicated to improving the health and wellbeing of artisans through economic empowerment — Northern Ghana's bridge to the world.</p>
+                    <ul class="chips"><li>HTML5</li><li>SCSS</li><li>JavaScript</li><li>Responsive</li><li>Static site</li></ul>
+                    <div class="panel-links">
+                      <a href="https://www.dewnorth.org/" target="_blank" rel="noopener" class="link-arrow">Visit Dew North <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 10 Reddit -->
+            <li class="project" data-cat="automation" data-img="assets/images/work/reddit.webp">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">10</span>
+                <span class="p-title">Reddit Automation System</span>
+                <span class="p-meta mono">Bot · AI content</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/reddit.webp" alt="Reddit automation bot" />
+                  <div class="panel-copy">
+                    <p>A fully automated Reddit bot suite that posts, comments, fetches top posts, analyses engagement and stores insights in Supabase. It uses AI to generate content and monitors subreddits in real time.</p>
+                    <ul class="chips"><li>Python</li><li>PRAW</li><li>Supabase</li><li>dotenv</li><li>Shell</li></ul>
+                    <div class="panel-links">
+                      <a href="https://github.com/Iam-Makafui/Reddit-Bott" target="_blank" rel="noopener" class="link-arrow">View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 11 Instagram -->
+            <li class="project" data-cat="automation" data-img="assets/images/work/instagram.jpg">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">11</span>
+                <span class="p-title">Instagram Story Automation</span>
+                <span class="p-meta mono">Bot · Graph API</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/instagram.jpg" alt="Instagram story automation" />
+                  <div class="panel-copy">
+                    <p>Posts a random video from a local folder to Instagram Stories at a scheduled time every day, using Instagram's Graph API for direct posting.</p>
+                    <ul class="chips"><li>Python</li><li>Instagram Graph API</li><li>Requests</li><li>Cron</li></ul>
+                    <div class="panel-links">
+                      <a href="https://github.com/Iam-Makafui/instagram-story-post-bot" target="_blank" rel="noopener" class="link-arrow">View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 12 School -->
+            <li class="project" data-cat="web" data-img="assets/images/work/transfo.jpg">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">12</span>
+                <span class="p-title">Transformation Academy</span>
+                <span class="p-meta mono">School website · CMS</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/transfo.jpg" alt="Transformation Academy school website" />
+                  <div class="panel-copy">
+                    <p>A complete school website with its own content management system, so staff can keep it up to date.</p>
+                    <ul class="chips"><li>Python</li><li>Laravel</li><li>PHP</li><li>MySQL</li></ul>
+                    <div class="panel-links">
+                      <a href="http://transformationacademyghana.atwebpages.com/" target="_blank" rel="noopener" class="link-arrow">Explore project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 13 Noble Life -->
+            <li class="project" data-cat="web" data-img="assets/images/work/noble.png">
+              <button type="button" class="project-row" aria-expanded="false">
+                <span class="p-num mono">13</span>
+                <span class="p-title">Noble Life Worship Centre</span>
+                <span class="p-meta mono">Church website</span>
+                <span class="p-icon" aria-hidden="true"></span>
+              </button>
+              <div class="project-panel">
+                <div class="panel-inner">
+                  <img loading="lazy" src="assets/images/work/noble.png" alt="Noble Life Worship Centre website" />
+                  <div class="panel-copy">
+                    <p>A dynamic church website with a friendly interface and multimedia built in.</p>
+                    <ul class="chips"><li>PHP</li><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+                    <div class="panel-links">
+                      <a href="http://noblelifeag.com/" target="_blank" rel="noopener" class="link-arrow">Explore project <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
           </ol>
         </div>
       </section>
-      
-    
 
-      <section class="contact">
-        <div class="container">
-          <h2 class="h2" id="contact">Send Message</h2>
-          <div class="contact-content">
-            <div class="contact-textbox">
-              <!-- Please comment this component if you're not available for hire -->
-              <strong href="#" class="hire-alert">
-                <span class="indicator"></span>
-                Available to Work
-              </strong>
-              <p class="contact-text">
-                As a software engineer, I construct web interfaces and design
-                systems with a special love for accessibility and performance. I tend to code things from scratch and enjoy
-                bringing ideas to life.
-              </p> 
-              <p class="contact-text">
-                I'm also a video editor, and in my spare time, I create and edit digital content.
+      <!-- ============ TOOLKIT ============ -->
+      <section class="toolkit" id="toolkit">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="section-index mono">03 — Toolkit</span>
+            <h2 class="h2 reveal">The tools <em>behind the work.</em></h2>
+          </div>
+
+          <div class="tools">
+            <div class="tool reveal" data-tilt-sm><img src="assets/images/skills/python-svgrepo-com.svg" alt="" loading="lazy" /><span>Python</span><small class="mono">Flask · automation</small></div>
+            <div class="tool reveal" data-tilt-sm><img src="assets/images/skills/laravel-svgrepo-com.svg" alt="" loading="lazy" /><span>Laravel</span><small class="mono">PHP · portals</small></div>
+            <div class="tool reveal" data-tilt-sm><img src="assets/images/skills/js.webp" alt="" loading="lazy" /><span>JavaScript</span><small class="mono">Frontend</small></div>
+            <div class="tool reveal" data-tilt-sm><img src="assets/images/skills/html.webp" alt="" loading="lazy" /><span>HTML &amp; CSS</span><small class="mono">SCSS · responsive</small></div>
+            <div class="tool reveal" data-tilt-sm><img src="assets/images/skills/graphql.webp" alt="" loading="lazy" /><span>GraphQL</span><small class="mono">APIs</small></div>
+            <div class="tool reveal" data-tilt-sm><img src="assets/images/skills/git.webp" alt="" loading="lazy" /><span>Git</span><small class="mono">Version control</small></div>
+            <div class="tool reveal" data-tilt-sm><img src="assets/images/skills/shell.webp" alt="" loading="lazy" /><span>Shell</span><small class="mono">Scripting · cron</small></div>
+            <div class="tool tool-more reveal">
+              <span class="mono">Also</span>
+              <ul>
+                <li>Flutter</li><li>PostgreSQL</li><li>PostGIS</li><li>MySQL</li><li>Redis</li>
+                <li>Socket.IO</li><li>Supabase</li><li>Docker</li><li>MoMo APIs</li><li>USSD / SMS</li><li>Video editing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TESTIMONIALS ============ -->
+      <section class="words" id="words">
+        <div class="wrap">
+          <div class="section-head section-head-row">
+            <div>
+              <span class="section-index mono">04 — Kind words</span>
+              <h2 class="h2 reveal">People I've <em>built with.</em></h2>
+            </div>
+            <div class="slider-nav">
+              <button type="button" class="icon-btn round" data-slide="prev" aria-label="Previous testimonial">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <span class="mono slider-count"><span data-slide-current>01</span> / 03</span>
+              <button type="button" class="icon-btn round" data-slide="next" aria-label="Next testimonial">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <ol class="quotes" aria-live="polite">
+            <li class="quote is-active">
+              <blockquote>“Philip is one of the most dependable developers I've collaborated with. His approach to solving technical challenges is thoughtful and effective, making him my go-to for any development work.”</blockquote>
+              <figure class="quote-author">
+                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="" loading="lazy" />
+                <figcaption><b>Bright Otoo</b><span class="mono">Colleague</span></figcaption>
+              </figure>
+            </li>
+            <li class="quote">
+              <blockquote>“I had the pleasure of working with Makafui on multiple software projects. His professionalism, attention to detail and strong coding abilities made our team stronger and more efficient.”</blockquote>
+              <figure class="quote-author">
+                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="" loading="lazy" />
+                <figcaption><b>Mrs. Rama Bannor</b><span class="mono">Former colleague · Con-imedia</span></figcaption>
+              </figure>
+            </li>
+            <li class="quote">
+              <blockquote>“Working with Philip was a great experience. He communicated development needs clearly and gave timely feedback, which made collaboration on the project smooth and productive.”</blockquote>
+              <figure class="quote-author">
+                <img src="assets/images/testimonials/User-Profile-PNG-Image.png" alt="" loading="lazy" />
+                <figcaption><b>Ebenezer Boakye</b><span class="mono">Client</span></figcaption>
+              </figure>
+            </li>
+          </ol>
+          <div class="slider-bar" aria-hidden="true"><span></span></div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="contact" id="contact">
+        <div class="wrap">
+          <span class="section-index mono">05 — Contact</span>
+          <h2 class="contact-title">
+            <span class="line"><span class="split">Let's build</span></span>
+            <span class="line"><em class="split">something real.</em></span>
+          </h2>
+
+          <div class="contact-grid">
+            <div class="contact-copy reveal">
+              <span class="status big"><span class="indicator"></span>Available to work</span>
+              <p>
+                I build web interfaces, APIs and design systems, with a special
+                love for accessibility and performance. I like to code things
+                from scratch and bring ideas to life.
               </p>
-            </div>            
-            <form action="https://formspree.io/f/mrbpbabz" method="POST" class="formcarry-form">
-              <div class="form-field">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" required />
+              <p>
+                I'm also a video editor — in my spare time I create and edit
+                digital content.
+              </p>
+              <ul class="socials">
+                <li><a href="https://github.com/Iam-Makafui" target="_blank" rel="noopener"><img src="assets/images/social-links/github.svg" alt="" loading="lazy" />GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/phillip-makafui-317490192" target="_blank" rel="noopener"><img src="assets/images/social-links/linkedin.svg" alt="" loading="lazy" />LinkedIn</a></li>
+                <li><a href="https://x.com/IamMakafui" target="_blank" rel="noopener"><img src="assets/images/social-links/twitter.svg" alt="" loading="lazy" />X / Twitter</a></li>
+              </ul>
+            </div>
+
+            <form action="https://formspree.io/f/mrbpbabz" method="POST" class="form reveal" data-form>
+              <div class="field">
+                <input type="text" name="name" id="name" required placeholder=" " autocomplete="name" />
+                <label for="name">Your name</label>
               </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  inputmode="email"
-                />
+              <div class="field">
+                <input type="email" name="email" id="email" required placeholder=" " inputmode="email" autocomplete="email" />
+                <label for="email">Email address</label>
               </div>
-              <div class="form-field">
+              <div class="field">
+                <textarea name="message" id="message" required placeholder=" " rows="5"></textarea>
                 <label for="message">How can I help you?</label>
-                <textarea name="message" id="message" required></textarea>
               </div>
-              <button type="submit" class="btn btn-cta">Send</button>
+              <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <button type="submit" class="btn btn-primary btn-send magnetic">
+                <span data-send-label>Send message</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </button>
+              <p class="form-status mono" role="status" aria-live="polite"></p>
             </form>
           </div>
         </div>
       </section>
     </main>
 
+    <!-- ============ FOOTER ============ -->
     <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <!-- Update href and src attributes -->
-          <nav>
-            <ol class="footer-links">
-              <li class="footer-link">
-                <a title="GitHub" href="https://github.com/Iam-Makafui" target="_blank" rel="noopener"
-                  ><img
-                    loading="lazy"
-                    src="assets/images/social-links/github.svg"
-                    alt="GitHub"
-                /></a>
-              </li>
-              <li class="footer-link">
-                <a title="Linkedin" href="www.linkedin.com/in/phillip-makafui-317490192" target="_blank" rel="noopener"
-                  ><img
-                    loading="lazy"
-                    src="assets/images/social-links/linkedin.svg"
-                    alt="Linkedin"
-                /></a>
-              </li>
-              <li class="footer-link">
-                <a title="Twitter" href="https://x.com/IamMakafui" target="_blank" rel="noopener"
-                  ><img
-                    loading="lazy"
-                    src="assets/images/social-links/twitter.svg"
-                    alt="Twitter"
-                /></a>
-              </li>
-            </ol>
-          </nav>
-          <p class="footer-text">
-            &copy; <span>2025</span> - Designed & developed by <a target="_blank" rel="noopener" href="https://github.com/Iam-Makafui">Phillip Makafui</a>
-          </p>
-          <label class="theme-switch" for="theme-switch">
-            <span>Dark Theme</span>
-            <input type="checkbox" id="theme-switch" role="switch"/>
-          </label>
+      <div class="wrap">
+        <div class="footer-top">
+          <p class="mono">&copy; <span data-year>2026</span> — Designed &amp; developed by
+            <a href="https://github.com/Iam-Makafui" target="_blank" rel="noopener">Phillip Makafui</a></p>
+          <div class="footer-actions">
+            <button type="button" class="text-btn mono" data-theme-toggle>
+              <span data-theme-label>Light theme</span>
+            </button>
+            <a href="#top" class="text-btn mono">Back to top ↑</a>
+          </div>
         </div>
+        <p class="footer-word" aria-hidden="true">MAKAFUI</p>
       </div>
     </footer>
+
+    <!-- ============ COMMAND PALETTE ============ -->
+    <div class="palette" hidden role="dialog" aria-modal="true" aria-label="Command menu">
+      <div class="palette-backdrop" data-palette-close></div>
+      <div class="palette-box">
+        <div class="palette-search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="text" placeholder="Jump to a section, project or action…" aria-label="Search commands" />
+          <kbd class="mono">esc</kbd>
+        </div>
+        <ul class="palette-list" role="listbox"></ul>
+      </div>
+    </div>
   </body>
 </html>
