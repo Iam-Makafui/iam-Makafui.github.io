@@ -104,7 +104,9 @@
   /* ---------- Hero: flowing lines (react to the mouse) ---------- */
   (function heroField() {
     const canvas = $(".hero-canvas");
-    if (!canvas || reduced) return;
+    if (!canvas) return;
+    // Windows "Animation effects: off" sets reduced motion. Keep the lines, just calmer.
+    const speed = reduced ? 0.5 : 1;
     const ctx = canvas.getContext("2d");
     const hero = $(".hero");
     let w, h, particles = [], running = true, t = 0;
@@ -130,7 +132,7 @@
 
     function frame() {
       if (!running) return;
-      t += 0.01;
+      t += 0.01 * speed;
       mouse.x = lerp(mouse.x, mouse.tx, 0.12);
       mouse.y = lerp(mouse.y, mouse.ty, 0.12);
       ctx.globalCompositeOperation = "destination-out";
@@ -141,9 +143,9 @@
       ctx.lineWidth = 1;
       for (const p of particles) {
         const a = field(p.x, p.y), px = p.x, py = p.y;
-        let vx = Math.cos(a) * p.s * 1.4, vy = Math.sin(a) * p.s * 1.4;
+        let vx = Math.cos(a) * p.s * 1.4 * speed, vy = Math.sin(a) * p.s * 1.4 * speed;
         const dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
-        if (d2 < 26000) {
+        if (!reduced && d2 < 26000) {
           const f = (1 - d2 / 26000) * 4, d = Math.sqrt(d2) || 1;
           vx += (dx / d) * f * 0.6 - (dy / d) * f;
           vy += (dy / d) * f * 0.6 + (dx / d) * f;
